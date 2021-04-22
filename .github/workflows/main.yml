@@ -1,0 +1,55 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: CI Workflow
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Show ASCII greeting
+      uses: mscoutermarsh/ascii-art-action@master
+      with:
+        text: 'Test Workflow!'
+          
+    - name: Install dependencies
+      run: |
+        sudo apt install wget
+        python -m pip install --upgrade pip
+        python -m pip install pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      
+    - name: Download test video file
+      run: |
+        wget https://github.com/spmallick/learnopencv/raw/master/VideoBackgroundEstimation/video.mp4 -O video.mp4
+
+    - name: Running tests
+      run: |
+        python app/background.py --video video.mp4 --n_frames 25
+        python -m pytest
+        
+    - name: Open issue on failure
+      if: ${{ failure() }}
+      uses: rishabhgupta/git-action-issue@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        title: CI/CD failed
+        body: Commit ${{ github.sha }} [CI run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) failed, please look into it.
+        assignees: 'haochen23'

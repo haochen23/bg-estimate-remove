@@ -31,7 +31,7 @@ jobs:
           
     - name: Install dependencies
       run: |
-        apt install wget
+        sudo apt install wget
         python -m pip install --upgrade pip
         python -m pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi

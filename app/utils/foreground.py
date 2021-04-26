@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import sys
-sys.path.extend("../")
+sys.path.extend("../../")
 
 SQUARE_KERNEL_SMALL = np.ones([3, 3], dtype=np.uint8)
 SQUARE_KERNEL_LARGE = np.ones([7, 7], dtype=np.uint8)
@@ -34,7 +34,7 @@ def remove_background(img, fg_mask):
 
 
 if __name__ == '__main__':
-    from app.background import calculate_background
+    from app.utils.background import calculate_background
     video = 'video.mp4'
     bg = calculate_background(video)
     ret = True

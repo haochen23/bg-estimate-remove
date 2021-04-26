@@ -2,7 +2,8 @@
 
 import numpy as np
 import cv2
-
+import sys
+sys.path.extend("../")
 
 def calculate_background(video="background.mp4", n_frames=25):
     """

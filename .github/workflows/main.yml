@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -43,6 +43,7 @@ jobs:
     - name: Running tests
       run: |
         python app/background.py --video video.mp4 --n_frames 25
+        python app/foreground.py
         python -m pytest
         
     - name: Open issue on failure

@@ -1,5 +1,7 @@
 import numpy as np
 import cv2
+import sys
+sys.path.append("../")
 
 SQUARE_KERNEL_SMALL = np.ones([3, 3], dtype=np.uint8)
 SQUARE_KERNEL_LARGE = np.ones([7, 7], dtype=np.uint8)

@@ -45,11 +45,11 @@ if __name__ == '__main__':
             break
         fg_mask = get_fg_mask(frame, bg)
         fg = remove_background(frame, fg_mask)
-        cv2.imshow('fg_mask', fg_mask)
-        cv2.imshow('fg', fg)
-        cv2.waitKey(50)
+        # cv2.imshow('fg_mask', fg_mask)
+        # cv2.imshow('fg', fg)
+        # cv2.waitKey(50)
 
     cap.release()
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
 
 

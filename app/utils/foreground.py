@@ -70,9 +70,9 @@ if __name__ == '__main__':
         for (start_x, start_y, end_x, end_y) in rects:
             cv2.rectangle(frame, (start_x, start_y), (end_x, end_y), (0, 255, 0), 2)
 
-        cv2.imshow("Frame", frame)
-        cv2.imshow('fg_mask', fg_mask)
-        cv2.waitKey(0)
+        # cv2.imshow("Frame", frame)
+        # cv2.imshow('fg_mask', fg_mask)
+        # cv2.waitKey(0)
 
         # fg = remove_background(frame, fg_mask)
         #
@@ -80,4 +80,4 @@ if __name__ == '__main__':
         # cv2.waitKey(50)
 
     cap.release()
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()

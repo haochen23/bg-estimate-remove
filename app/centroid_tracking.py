@@ -38,9 +38,9 @@ if __name__ == '__main__':
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
             cv2.circle(frame, (centroid[0], centroid[1]), 4, (0, 255, 0), -1)
 
-        cv2.imshow("Frame", frame)
-        cv2.imshow('fg_mask', fg_mask)
-        cv2.waitKey(0)
+        # cv2.imshow("Frame", frame)
+        # cv2.imshow('fg_mask', fg_mask)
+        # cv2.waitKey(0)
 
     cv2.destroyAllWindows()
-    cap.release()
+    # cap.release()

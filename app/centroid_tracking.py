@@ -47,7 +47,9 @@ if __name__ == '__main__':
 
         # cv2.imshow("Frame", frame)
         # cv2.imshow('fg_mask', fg_mask)
-        # cv2.waitKey(0)
+        #
+        # if cv2.waitKey(0) & 0xFF == 27:  # Esc pressed
+        #     break
 
     cv2.destroyAllWindows()
     cap.release()

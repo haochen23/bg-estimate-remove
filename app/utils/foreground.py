@@ -80,4 +80,4 @@ if __name__ == '__main__':
         # cv2.waitKey(50)
 
     cap.release()
-    # cv2.destroyAllWindows()
+    cv2.destroyAllWindows()

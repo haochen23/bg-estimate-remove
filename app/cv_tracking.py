@@ -7,13 +7,14 @@ from app.utils.background import calculate_background
 from app.utils.foreground import get_fg_mask
 from app.trackers.cv_tracker import createTrackerByName, CVTracker
 
-
 if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--video", type=str, required=True, help="Path to a video file, or camera index.")
     parser.add_argument("--n_frames", type=int, default=25, help="Number of frames used to calculate background")
+    parser.add_argument("--tracker", type=str, default="KCF",
+                        help="Which type of tracker to use, available types are listed in config.")
     args = parser.parse_args()
 
     video = args.video
@@ -53,4 +54,3 @@ if __name__ == '__main__':
 
     cv2.destroyAllWindows()
     cap.release()
-

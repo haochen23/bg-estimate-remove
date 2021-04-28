@@ -45,11 +45,11 @@ if __name__ == '__main__':
                 p2 = (int(newbox[0] + newbox[2]), int(newbox[1] + newbox[3]))
                 cv2.rectangle(frame, p1, p2, (0, 255, 0), 2, 1)
 
-        cv2.imshow('MultiTracker', frame)
+        # cv2.imshow('MultiTracker', frame)
 
         # quit on ESC button
-        if cv2.waitKey(0) & 0xFF == 27:  # Esc pressed
-            break
+        # if cv2.waitKey(0) & 0xFF == 27:  # Esc pressed
+        #     break
 
     cv2.destroyAllWindows()
     cap.release()

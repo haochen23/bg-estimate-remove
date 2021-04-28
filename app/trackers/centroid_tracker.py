@@ -3,6 +3,7 @@ from collections import OrderedDict
 import numpy as np
 from app.config import MAX_OBJECT_DIST
 
+
 class CentroidTracker:
     def __init__(self, max_disappearance=3):
 

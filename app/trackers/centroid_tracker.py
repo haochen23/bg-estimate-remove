@@ -3,6 +3,7 @@ from collections import OrderedDict
 import numpy as np
 from app.config import MAX_OBJECT_DIST
 
+
 class CentroidTracker:
     def __init__(self, max_disappearance=3):
 
@@ -25,7 +26,7 @@ class CentroidTracker:
         if len(rects) == 0:
             # loop through existing tracked objects and mark them as disappeared
             for objectID in list(self.disappeared.keys()):
-                self.disappeared[objectID] = 1
+                self.disappeared[objectID] += 1
 
                 # if reached max_disappearance
                 if self.disappeared[objectID] > self.max_disappearance:
@@ -47,6 +48,7 @@ class CentroidTracker:
                 self.register(input_centroids[i])
         # otherwise, match with already tracking objects
         else:
+
             objectIDs = list(self.objects.keys())
             object_centroids = list(self.objects.values())
 

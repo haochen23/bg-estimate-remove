@@ -44,7 +44,8 @@ jobs:
       run: |
         python app/utils/background.py --video video.mp4 --n_frames 25
         python app/utils/foreground.py
-        python app/centroid_tracking.py
+        python app/centroid_tracking.py --video video.mp4 --n_frames 25
+        python app/cv_tracking.py --video video.mp4 --n_frames 25
         python -m pytest
         
     - name: Open issue on failure

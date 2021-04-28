@@ -1,6 +1,4 @@
-# bg-estimate-remove
-
-## Estimate and Remove Background, and Tracking Objects from Video Stream
+# Estimate and Remove Background, and Tracking Objects from Video Stream
 
 The code can be used for simple cases. For example, tracking objects on a conveyor.
 

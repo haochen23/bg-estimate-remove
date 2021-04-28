@@ -44,7 +44,7 @@ def get_fg_mask(img, bg_img):
                 cY = int((y + y + h) / 2.0)
 
                 if height * START_Y < cY <= height * END_Y and width * START_X < cX <= width * END_X:
-                    rects.append((x, y, x + w, y + h))
+                    rects.append([x, y, x + w, y + h])
     return rects, fg_mask
 
 

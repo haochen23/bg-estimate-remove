@@ -11,8 +11,15 @@ from app.config import MAX_DISAPPEAR_FRAME_COUNTS, MAX_OBJECT_DIST, START_X, STA
 import cv2
 
 if __name__ == '__main__':
-    video = 'video.mp4'
-    bg = calculate_background(video)
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--video", type=str, required=True, help="Path to a video file, or camera index.")
+    parser.add_argument("--n_frames", type=int, default=25, help="Number of frames used to calculate background")
+    args = parser.parse_args()
+
+    video = args.video
+    bg = calculate_background(video, n_frames=args.n_frames)
     ret = True
     cap = cv2.VideoCapture(video)
     ct = CentroidTracker(max_disappearance=MAX_DISAPPEAR_FRAME_COUNTS)
@@ -43,4 +50,4 @@ if __name__ == '__main__':
         # cv2.waitKey(0)
 
     cv2.destroyAllWindows()
-    # cap.release()
+    cap.release()

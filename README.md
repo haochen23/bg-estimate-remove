@@ -60,3 +60,36 @@ cp /usr/local/lib/python3.8/site-packages/pybgs.cpython-38-x86_64-linux-gnu.so /
 cd ..
 python3 demo.py
 ```
+
+### Install Dependencies
+
+1. Setup up python virtual environment (Suggested). Follow this [link](https://linuxize.com/post/how-to-create-python-virtual-environments-on-ubuntu-18-04/) to set up and activate your virtual env.
+2. Install python dependencies in your virtual env:
+   
+   `pip install -r requirements.txt`
+
+### How to run
+1. Estimating background from video file or camera stream
+```bash
+python app/utils/background.py --video video.mp4 --n_frames 25
+```
+
+2. Get foreground mask, run the following script:
+```bash
+python app/utils/foreground.py
+```
+
+3. Run the centroid tracker:
+```bash
+python app/centroid_tracking.py --video video.mp4 --n_frames 25
+```
+
+4. Run OpenCV trackers:
+```bash
+python app/cv_tracking.py --video video.mp4 --n_frames 25 --tracker KCF
+```
+
+5. Run unit tests:
+```bash
+python -m pytest
+```
